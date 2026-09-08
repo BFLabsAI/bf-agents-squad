@@ -49,13 +49,17 @@ def publish_squad_issues(squad_dir):
 
     # 1. Criar Epic Master
     epic_title = f"EPIC: [{squad_cfg.get('name', squad_code)}] Execution Pipeline"
-    epic_body = f"""# Epic Orchestration Pipeline — {squad_cfg.get('name')}
+    epic_body = f"# Epic Orchestration Pipeline — {squad_cfg.get('name')}
 
-**Squad Code:** `{squad_code}`
-**Descrição:** {squad_cfg.get('description')}
+"
+    epic_body += f"**Squad Code:** `{squad_code}`
+"
+    epic_body += f"**Descrição:** {squad_cfg.get('description')}
 
-## DAG de Execução
-"""
+"
+    epic_body += "## DAG de Execução
+
+"
     for step in pipe_cfg.get('steps', []):
         step_type = step.get('type', 'agent_execution')
         epic_body += f"- [ ] **{step['id']}** ({step.get('agent', step_type)})

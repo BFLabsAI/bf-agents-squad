@@ -1,0 +1,5 @@
+id,name,role,path,execution,skills
+researcher,Pesquisador BF,Pesquisador de Mercado e Dores,agents/researcher.custom.md,subagent,web_search
+copywriter,Redator BF,Copywriter de Conversão,agents/copywriter.custom.md,inline,
+designer,Designer Visual,Criador de Ativos Visuais (SVG/HTML),agents/designer.custom.md,subagent,execute_code
+reviewer,Revisor QA,Diretor de Arte e Validador de Qualidade,agents/reviewer.custom.md,inline,

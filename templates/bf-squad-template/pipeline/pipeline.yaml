@@ -1,0 +1,30 @@
+version: "1.0"
+name: "Pipeline Canônico BF Squad"
+
+steps:
+  - id: step_01_research
+    agent: researcher
+    spec: "pipeline/steps/01-research.md"
+    outputs: ["output/01-research.json"]
+
+  - id: checkpoint_angle_approval
+    type: human_in_the_loop
+    prompt: "Revise os 3 ângulos gerados em output/01-research.json. Confirme qual ângulo seguir."
+
+  - id: step_02_copywriting
+    agent: copywriter
+    depends_on: ["step_01_research"]
+    spec: "pipeline/steps/02-copywriting.md"
+    outputs: ["output/02-copy.md"]
+
+  - id: step_03_design
+    agent: designer
+    depends_on: ["step_02_copywriting"]
+    spec: "pipeline/steps/03-design.md"
+    outputs: ["output/03-design.html"]
+
+  - id: step_04_qa
+    agent: reviewer
+    depends_on: ["step_03_design"]
+    spec: "pipeline/steps/04-qa.md"
+    outputs: ["output/04-qa-report.md"]

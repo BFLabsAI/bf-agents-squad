@@ -1,0 +1,21 @@
+# BF Squad Manifest
+name: "BF Squad Template"
+code: "bf-squad-template"
+version: "1.0.0"
+description: "Template canônico para criação de novos squads da BF Labs com suporte multi-agente e HITL."
+
+skills:
+  - web_search
+  - execute_code
+
+agents:
+  - id: researcher
+  - id: copywriter
+  - id: designer
+  - id: reviewer
+
+pipeline:
+  entry: "pipeline/pipeline.yaml"
+
+output_dir: "output/"
+memory_dir: "_memory/"
